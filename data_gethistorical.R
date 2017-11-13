@@ -6,6 +6,7 @@ library(quantmod)
 library(TTR)
 library(matrixStats)
 library(data.table)
+library(zoo)
 
 #Variables to get instrument codes first.
 EURCurrency.Pairs <- c("EUR/USD", "EUR/JPY", "EUR/NZD", "EUR/GBP","EUR/CHF","EUR/AUD", "EUR/CAD")
@@ -42,7 +43,8 @@ allTimeSeries = allTimeSeries[,EURCurrency.Pairs]
 
 #get currency value
 EUR <- allTimeSeries
-#EUR$Index <- 100 + (rowMeans((sweep(EUR,2,InitialEUR, '/')-1)*100))
+EUR$Index <- 100 + (rowMeans((sweep(EUR,2,InitialEUR, '/')-1)*100))
+
 
 #historical values
 #EURDayHistory = fread("./historical/EURAUD1440.csv",select=c(1))
