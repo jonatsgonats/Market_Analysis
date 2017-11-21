@@ -74,4 +74,7 @@ LookBack4HR <- 12
 #EURUSD_4HR$MOM <- 
 #  c(NA,)
 
-
+for(i in 1:nrow(EURUSD_4HR))
+{
+  EURUSD_4HR$Mom[i,] <- c(NA,EURUSD_4HR[i,8])
+}
